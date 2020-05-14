@@ -20,12 +20,21 @@
 
 	<build>
 		<plugins>
+		
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+				<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>4.2.2</muleVersion>
+						<username>srinu005</username>
+						<password>Srinu@515</password>
+						<applicationName>sampletest</applicationName>
+						<environment>Development</environment>
+					</cloudHubDeployment>
 				</configuration>
 			</plugin>
 		<plugin>
