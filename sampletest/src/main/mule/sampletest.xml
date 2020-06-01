@@ -20,6 +20,15 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 			doc:id="343d4776-c6f2-4112-a3e1-5829301632f7" variableName="code" />
 		<set-payload value="#[vars.code]" doc:name="Set Payload"
 			doc:id="67fafa5f-b0aa-4558-9012-a05e131772d6" />
+		<choice doc:name="Choice" doc:id="8d01ab4c-bf8a-4587-8085-780943cc90b6" >
+			<when expression="#[payload != null]">
+				<set-payload value='#["Hi Team"]' doc:name="Set Payload" doc:id="d147e44b-9e07-48da-b326-c6380fe9cb71" />
+			</when>
+			<otherwise >
+				<set-payload value='#["payload is null"]' doc:name="Set Payload" doc:id="6a599be2-b396-4e74-8b87-fd2f26795f9d" />
+				<logger level="INFO" doc:name="Logger" doc:id="96cb3c4d-32a7-41da-b0cc-5f9f5c121c53" message='#["Payload is null"]'/>
+			</otherwise>
+		</choice>
 		<logger level="INFO" doc:name="Logger"
 			doc:id="cf5f669f-69b6-4855-97a6-311658ab86e0" message="#[payload]" />
 	</flow>
